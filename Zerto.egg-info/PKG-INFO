@@ -1,12 +1,13 @@
 Metadata-Version: 1.1
 Name: Zerto
-Version: 0.1.dev0
+Version: 0.3
 Summary: Module for calling the Zerto api
 Home-page: https://github.com/recklessop/pyzerto3
 Author: Justin Paul
 Author-email: justin@jpaul.me
 License: UNKNOWN
-Description: 
+Description: Original Python2 module code from: https://github.com/keesbos/pyzerto
+        
         Zerto
         =====
         
@@ -52,8 +53,8 @@ Description:
         ```
         
         To install (preferably in virtualenv) with easy_install or pip:
-        * `easy_install https://github.com/keesbos/pyzerto/tarball/master`
-        * `pip install git+https://github.com/keesbos/pyzerto.git`
+        * `easy_install https://github.com/recklessop/pyzerto3/tarball/master`
+        * `pip install git+https://github.com/recklessop/pyzerto3.git`
         
 Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha

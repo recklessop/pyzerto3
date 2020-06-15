@@ -4,6 +4,7 @@
 import os
 from setuptools import setup
 
+exec(open('zerto/_version.py').read())
 try:
     import requests     # NOQA
 except ImportError:
@@ -20,7 +21,7 @@ def read(fname):
 
 setup(
     name='Zerto',
-    version='0.1',
+    version=__version__,
     description='Module for calling the Zerto api',
     author='Justin Paul',
     author_email='justin@jpaul.me',

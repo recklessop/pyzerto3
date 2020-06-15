@@ -17,6 +17,7 @@ class Alert(ZertoObject):
         ])
         self.help_identifier = kwargs.get('HelpIdentifier')
         self.site_identifier = (kwargs.get('Site') or {}).get('identifier')
+        self.alert_identifier = (kwargs.get('Link') or {}).get('identifier')
         self.turned_on = parse_timestamp(kwargs['TurnedOn'])
         self.description = kwargs['Description']
         self.entity = kwargs.get('Entity')

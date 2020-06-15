@@ -5,6 +5,7 @@ Zerto.egg-info/SOURCES.txt
 Zerto.egg-info/dependency_links.txt
 Zerto.egg-info/top_level.txt
 zerto/__init__.py
+zerto/_version.py
 zerto/alert.py
 zerto/constants.py
 zerto/errors.py

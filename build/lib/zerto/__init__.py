@@ -5,6 +5,9 @@ Module with api interface for zerto
 import base64
 import json
 import requests
+from ._version import __version__
+
+requests.packages.urllib3.disable_warnings()
 
 from .errors import (                        # NOQA
     ZertoError,
@@ -65,10 +68,12 @@ from .virtualization_site import VirtualizationSite  # NOQA
 
 class Zerto(object):
 
-    def __init__(self, url):
+    def __init__(self, url, session=None):
         self.url = url
-        self.session = None
+        self.session = session
         self.paths = ['v1']
+        if session is not None:
+            self.get_apis()
 
     def get_url(self, path):
         if not self.url:
@@ -157,14 +162,21 @@ class Zerto(object):
         ]))
         return req.json()
 
+    def set_session(self, session):
+        self.session = session
+        return 
+
     def get_session(self, user, password, method=None):
-        if not self.paths:
-            self.get_apis()
+        self.get_apis()
+        #if not self.paths:
+        #    self.get_apis()
+        credentials = base64.b64encode('{}:{}'.format(user, password).encode())
         headers = {
-            'Authorization': base64.b64encode(
-                '{0}:{1}'.format(user, password))
-        }
-        session = None
+            'Authorization': 'Basic {}'.format(credentials.decode())
+        } 
+        session=None
+        # session var comes from parameters
+        print(session)
         path = 'v1/session/add'
         if method is not None and not isinstance(method, AuthenticationMethod):
             try:
